@@ -21,7 +21,31 @@ FROM cafe_sales_data;
 
 
 -- 4. Count Nulls and empties
-SELECT * AS NULLS
+SELECT
+    COUNT(*) FILTER (WHERE transaction_id IS NULL OR transaction_id = '') AS null_id,
+    COUNT(*) FILTER (WHERE item IS NULL OR item = '') AS null_item,
+    COUNT(*) FILTER (WHERE quantity IS NULL OR quantity = '') AS null_quantity,
+    COUNT(*) FILTER (WHERE price_per_unit IS NULL OR price_per_unit = '') AS null_price,
+    COUNT(*) FILTER (WHERE total_spent IS NULL OR price_per_unit = '') AS null_spent,
+    COUNT(*) FILTER (WHERE transaction_date IS NULL OR transaction_date = '' ) AS null_date
+FROM cafe_sales_data;
+
+
+-- Check Duplicates  (WHERE filters rows before they are grouped, and HAVING filters groups after they are calculated.)
+SELECT transaction_id, COUNT(*)
 FROM cafe_sales_data
-WHERE
-    item IS Null OR CAST(item AS CHAR) = ''
+GROUP BY transaction_id
+HAVING COUNT(*) > 1;
+
+
+-- Check Date formate
+SELECT DISTINCT transaction_date 
+FROM cafe_sales_data
+LIMIT 20;
+
+
+-- Check Inconsistencies
+SELECT 
+    DISTINCT item
+FROM cafe_sales_data
+ORDER BY item;
