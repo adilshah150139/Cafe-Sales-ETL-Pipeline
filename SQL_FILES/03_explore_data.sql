@@ -7,6 +7,15 @@ SELECT * FROM cafe_sales_data
 LIMIT 20
 
 
+-- Datatype
+SELECT data_type
+FROM information_schema.columns
+WHERE table_name = 'cafe_sales_data'
+      AND column_name IN ('quantity', 'price_per_unit', 'total_spent')
+ORDER BY ordinal_position
+
+
+
 -- 3. COUNT of 'ERROR' values per column
 SELECT 
     SUM(CASE WHEN CAST(transaction_id AS CHAR) = 'ERROR' THEN 1 ELSE 0 END) AS bad_id,
@@ -27,6 +36,7 @@ SELECT
     COUNT(*) FILTER (WHERE quantity IS NULL OR quantity = '') AS null_quantity,
     COUNT(*) FILTER (WHERE price_per_unit IS NULL OR price_per_unit = '') AS null_price,
     COUNT(*) FILTER (WHERE total_spent IS NULL OR price_per_unit = '') AS null_spent,
+    COUNT(*) FILTER (WHERE payment_method IS NULL OR payment_method = '') AS null_method,
     COUNT(*) FILTER (WHERE transaction_date IS NULL OR transaction_date = '' ) AS null_date
 FROM cafe_sales_data;
 
