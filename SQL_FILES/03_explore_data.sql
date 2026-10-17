@@ -61,3 +61,5 @@ SELECT
     DISTINCT item
 FROM cafe_sales_data
 ORDER BY item;
+
+
