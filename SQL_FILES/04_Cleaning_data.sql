@@ -1,3 +1,4 @@
+UPDATE cafe_sales_data SET item = NULL WHERE item IN ('error', 'UNKNOWN','ERROR','N/A')
 UPDATE cafe_sales_data SET quantity = NULL WHERE quantity IN ('ERROR', 'UNKNOWN','N/A', '-', '?');
 UPDATE cafe_sales_data SET price_per_unit = NULL WHERE price_per_unit IN ('ERROR', 'UNKNOWN','N/A', '-', '?');
 UPDATE cafe_sales_data SET total_spent = NULL WHERE total_spent IN ('ERROR', 'UNKNOWN','N/A', '-', '?');
