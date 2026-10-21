@@ -10,3 +10,5 @@ CREATE TABLE cafe_sales_data (
 );
 
 DROP TABLE cafe_sales_data
+
+SELECT * FROM cafe_sales_data
