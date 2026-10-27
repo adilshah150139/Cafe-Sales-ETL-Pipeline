@@ -7,8 +7,8 @@ The primary purpose of this project is to take a raw, heavily corrupted cafe sal
 The analysis was driven by the following core business questions:
 1. **Overall Business Health:** What is the total revenue generated, total transactions, and the Average Order Value (AOV)?
 2. **Product Performance:** Which specific items generate the highest revenue and should be prioritized in inventory?
-3. **Daily Trends:** How does revenue fluctuate by month and day of the week?
-4. **Monthly Trends:** How does revenue trend across the months of the year, and are there seasonal peaks or slumps?
+3. **Monthly Trends:** How does revenue trend across the months of the year, and are there seasonal peaks or slumps?
+4. **Daily Trends:** How does revenue fluctuate by month and day of the week?
 5. **Location Performance:** Which cafe branch is the most profitable?
 
 ## 🧹 Data Cleaning & Pipeline (SQL + Python)
